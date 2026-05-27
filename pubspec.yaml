@@ -1,0 +1,39 @@
+name: permission_plus_apple
+description: "Apple (iOS & macOS) implementation of the permission_plus plugin"
+
+version: 0.0.1
+
+homepage: https://github.com/jagadeeshchoudhary/permission_plus_apple
+repository: https://github.com/jagadeeshchoudhary/permission_plus_apple/tree/main
+issue_tracker: https://github.com/jagadeeshchoudhary/permission_plus_apple/issues
+
+
+environment:
+  sdk: ^3.12.0
+  flutter: '>=3.3.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  plugin_platform_interface: ^2.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  plugin:
+    platforms:
+      ios:
+        pluginClass: PermissionPlusApplePlugin
+        sharedDarwinSource: true
+      macos:
+        pluginClass: PermissionPlusApplePlugin
+        sharedDarwinSource: true
+
+topics: 
+  - permissions
+  - apple
+  - ios
+  - macos
