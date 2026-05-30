@@ -28,9 +28,11 @@ flutter:
   plugin:
     platforms:
       ios:
+        dartPluginClass: PermissionPlusApple
         pluginClass: PermissionPlusApplePlugin
         sharedDarwinSource: true
       macos:
+        dartPluginClass: PermissionPlusApple
         pluginClass: PermissionPlusApplePlugin
         sharedDarwinSource: true
 

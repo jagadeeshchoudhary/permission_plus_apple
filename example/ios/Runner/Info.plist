@@ -66,5 +66,43 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Test camera permission</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Test microphone permission</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Test photos permission</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Test photos add permission</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Test location when in use permission</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Test location always permission</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Test location always permission</string>
+	<key>NSContactsUsageDescription</key>
+	<string>Test contacts permission</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Test calendar permission</string>
+	<key>NSCalendarsFullAccessUsageDescription</key>
+	<string>Test full calendar permission</string>
+	<key>NSCalendarsWriteOnlyAccessUsageDescription</key>
+	<string>Test write only calendar permission</string>
+	<key>NSRemindersUsageDescription</key>
+	<string>Test reminders permission</string>
+	<key>NSRemindersFullAccessUsageDescription</key>
+	<string>Test full reminders permission</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Test bluetooth permission</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>Test bluetooth permission</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Test speech recognition permission</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Test media library permission</string>
+	<key>NSMotionUsageDescription</key>
+	<string>Test motion sensors permission</string>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>Test app tracking transparency permission</string>
 </dict>
 </plist>

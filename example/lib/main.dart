@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
-
-import 'package:flutter/services.dart';
 import 'package:permission_plus_apple/permission_plus_apple.dart';
+import 'package:permission_plus_platform_interface/permission_plus_platform_interface.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,43 +14,47 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
-  final _permissionPlusApplePlugin = PermissionPlusApple();
+  final _plugin = PermissionPlusApple();
+  String _status = 'Tap a permission to check its status';
 
-  @override
-  void initState() {
-    super.initState();
-    initPlatformState();
-  }
-
-  // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
-    String platformVersion;
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    // We also handle the message potentially returning null.
+  Future<void> _requestPermission(PermissionType type) async {
     try {
-      platformVersion =
-          await _permissionPlusApplePlugin.getPlatformVersion() ?? 'Unknown platform version';
-    } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
+      final status = await _plugin.requestPermission(type);
+      setState(() {
+        _status = '${type.name}: ${status.name}';
+      });
+    } catch (e) {
+      setState(() {
+        _status = '${type.name}: Error - $e';
+      });
     }
-
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
-
-    setState(() {
-      _platformVersion = platformVersion;
-    });
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: const Text('Plugin example app')),
-        body: Center(child: Text('Running on: $_platformVersion\n')),
+        appBar: AppBar(title: const Text('Permission Plus Apple Example')),
+        body: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Text(_status, style: const TextStyle(fontSize: 16)),
+            ),
+            Expanded(
+              child: ListView(
+                children: [
+                  for (final type in PermissionType.values)
+                    ListTile(
+                      title: Text(type.name),
+                      trailing: const Icon(Icons.chevron_right),
+                      onTap: () => _requestPermission(type),
+                    ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
