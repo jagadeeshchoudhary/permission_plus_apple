@@ -12,7 +12,9 @@ import 'package:permission_plus_apple/permission_plus_apple.dart';
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
-  testWidgets('checkPermission returns a valid status', (WidgetTester tester) async {
+  testWidgets('checkPermission returns a valid status', (
+    WidgetTester tester,
+  ) async {
     final plugin = PermissionPlusApple();
     final status = await plugin.checkPermission(PermissionType.camera);
     // Just verify we get a valid PermissionStatus back.
